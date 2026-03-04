@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
+
+:root {
+  /* Cream / Off-white palette */
+  --bg-main: #f7f3ee;
+  /* warm off-white / cream */
+  --bg-section: #f0ebe3;
+  /* slightly deeper cream */
+  --bg-card: #faf7f2;
+  /* lightest card surface */
+
+  --border: #e0d5c5;
+  /* warm light-brown border */
+  --border-hover: #c4b49a;
+  /* deeper warm brown on hover */
+
+  --accent: #8b6f47;
+  /* earthy medium brown – primary accent */
+  --accent-light: #c9a97a;
+  /* lighter warm gold-brown */
+  --accent-muted: #d4c4ae;
+  /* very soft brown – muted highlights */
+
+  --text-main: #2c2420;
+  /* deep warm brown – main text */
+  --text-body: #5c4f42;
+  /* medium warm brown – body text */
+  --text-muted: #9e8d7c;
+  /* light warm brown – muted text */
+
+  --shadow: rgba(139, 111, 71, 0.10);
+  --shadow-hover: rgba(139, 111, 71, 0.20);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes subtleGlow {
+  0% {
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+
+  50% {
+    box-shadow: 0 4px 32px var(--shadow-hover);
+  }
+
+  100% {
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+}

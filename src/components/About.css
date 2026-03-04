@@ -1,0 +1,92 @@
+.about-section {
+  padding: 6rem 2rem;
+  background-color: var(--bg-section);
+  position: relative;
+  z-index: 1;
+}
+
+/* Global styles moved to index.css */
+
+.about-content {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.about-text-card {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Global .glass-card used */
+
+.about-text-card h3,
+.skills-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  position: relative;
+  display: inline-block;
+}
+
+.about-text-card h3::after,
+.skills-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 40%;
+  height: 2px;
+  background: var(--accent-light);
+  border-radius: 2px;
+}
+
+.about-text-card p {
+  color: var(--text-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+.about-text-card p:last-child {
+  margin-bottom: 0;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-badge {
+  background: var(--bg-section);
+  color: var(--accent);
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+}
+
+.skill-badge:hover {
+  background: var(--accent);
+  color: var(--bg-card);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-hover);
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
