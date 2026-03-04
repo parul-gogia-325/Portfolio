@@ -60,6 +60,11 @@ body {
   flex-direction: column;
 }
 
+/* Global: shift all section content right by 5rem */
+.section-container {
+  padding-left: 5rem;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
