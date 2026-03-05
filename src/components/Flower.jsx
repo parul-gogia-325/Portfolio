@@ -112,8 +112,8 @@ const FlowerCanvas = () => {
                 this.growth = 0;
                 this.bloom = 0;
                 this.seedX = width / 2;
-                this.seedY = height * 0.92;
-                this.maxHeight = height * 0.55;
+                this.seedY = height * 0.94;
+                this.maxHeight = height * 0.60;
                 this.palette = REALISTIC_PALETTES[Math.floor(Math.random() * REALISTIC_PALETTES.length)];
                 this.stemColor = '#5d8a3c';   // green stem
                 this.dirtColor = '#6d4c41';   // brown earth
@@ -124,8 +124,8 @@ const FlowerCanvas = () => {
                 this.headPos = { x: this.seedX, y: this.seedY };
             }
             update() {
-                if (this.growth < 1) this.growth += 0.010;
-                else if (this.bloom < 1) this.bloom += 0.014;
+                if (this.growth < 1) this.growth += 0.030;
+                else if (this.bloom < 1) this.bloom += 0.040;
             }
             draw() {
                 const g = easeOutQuad(this.growth);
@@ -144,11 +144,16 @@ const FlowerCanvas = () => {
             }
             drawDirt(g) {
                 ctx.save();
-                ctx.translate(this.seedX, this.seedY);
-                const sz = 100 * Math.min(1, g * 1.8);
+                const sz = 110 * Math.min(1, g * 1.8);
+                const baseY = this.seedY + 18;
                 ctx.beginPath();
-                ctx.moveTo(-sz * 1.4, 25);
-                ctx.quadraticCurveTo(0, -sz * 0.28, sz * 1.4, 25);
+                // arch top
+                ctx.moveTo(this.seedX - sz * 1.5, baseY);
+                ctx.quadraticCurveTo(this.seedX, this.seedY - sz * 0.30, this.seedX + sz * 1.5, baseY);
+                // fill rectangle all the way to canvas bottom — no gap possible
+                ctx.lineTo(this.seedX + sz * 1.5, height + 10);
+                ctx.lineTo(this.seedX - sz * 1.5, height + 10);
+                ctx.closePath();
                 ctx.fillStyle = this.dirtColor;
                 ctx.globalAlpha = 0.55;
                 ctx.fill();
@@ -202,8 +207,8 @@ const FlowerCanvas = () => {
 
                 // Outer petals
                 const petalCount = 14;
-                const outerH = 85 * b;
-                const outerW = 24 * b;
+                const outerH = 130 * b;
+                const outerW = 36 * b;
                 for (let i = 0; i < petalCount; i++) {
                     ctx.save();
                     ctx.rotate((i * Math.PI * 2) / petalCount);
@@ -225,7 +230,7 @@ const FlowerCanvas = () => {
                 // Center
                 if (b > 0.4) {
                     const ib = Math.min(1, (b - 0.4) * 2.5);
-                    ctx.beginPath(); ctx.arc(0, 0, 24 * ib, 0, Math.PI * 2);
+                    ctx.beginPath(); ctx.arc(0, 0, 34 * ib, 0, Math.PI * 2);
                     ctx.fillStyle = this.palette.inner; ctx.fill();
                     for (let i = 0; i < 8; i++) {
                         const ang = i * Math.PI / 4 + Date.now() / 1000;
