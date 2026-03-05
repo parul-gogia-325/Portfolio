@@ -20,23 +20,24 @@ const Navbar = () => {
     { name: 'Experience', href: '#experience' },
     { name: 'Education', href: '#education' },
     { name: 'Work', href: '#work' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <motion.div 
+        <motion.div
           className="nav-logo"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          PG<span>.</span>
+          Parul<span></span>
         </motion.div>
 
         <div className="nav-links-desktop">
           {navLinks.map((link, i) => (
-            <motion.a 
+            <motion.a
               key={link.name}
               href={link.href}
               initial={{ opacity: 0, y: -10 }}
@@ -47,8 +48,8 @@ const Navbar = () => {
               {link.name}
             </motion.a>
           ))}
-          <motion.a 
-            href="mailto:Parulgogia4550@gmail.com" 
+          <motion.a
+            href="mailto:Parulgogia4550@gmail.com"
             className="nav-cta"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -65,7 +66,7 @@ const Navbar = () => {
 
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             className="nav-links-mobile"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -73,9 +74,9 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
           >
             {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
+              <a
+                key={link.name}
+                href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}

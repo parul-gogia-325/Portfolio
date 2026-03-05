@@ -24,12 +24,7 @@ const Projects = () => {
     },
   ];
 
-  const achievements = [
-    'Core Team Member – Alexa Developer\'s Community',
-    'Top 35 Teams – Tekathon (SIH), Chandigarh University',
-    'Coursera Campus Ambassador – Chandigarh University (2021–2023)',
-    'Runner-up – Game of Code conducted by IEEE',
-  ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -59,7 +54,7 @@ const Projects = () => {
           <div className="section-title-underline"></div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
@@ -67,16 +62,16 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           {projectsData.map((project) => (
-            <motion.div 
-              key={project.id} 
+            <motion.div
+              key={project.id}
               className="project-card"
               variants={itemVariants}
               whileHover={{ translateY: -5 }}
             >
               <div className={`project-image-placeholder ${project.imageClass}`}>
                 <div className="project-overlay">
-                  <motion.a 
-                    href={project.link} 
+                  <motion.a
+                    href={project.link}
                     className="btn primary-btn view-btn"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -101,29 +96,6 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Achievements */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <h2 className="section-title" style={{ marginTop: '4rem' }}>Achievements</h2>
-          <div className="section-title-underline"></div>
-          <div className="achievements-list">
-            {achievements.map((item, i) => (
-              <motion.div 
-                key={i} 
-                className="achievement-item"
-                whileHover={{ x: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <span className="achievement-icon">🏆</span>
-                <span>{item}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

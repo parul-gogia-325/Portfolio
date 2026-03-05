@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-top">
           <div className="footer-logo">
-            PG<span>.</span>
+            Parul<span></span>
           </div>
           <p className="footer-tagline">
             Building scalable solutions with a focus on enterprise integration and AI.
